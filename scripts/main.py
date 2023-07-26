@@ -6,7 +6,7 @@ def main(args):
     datas = []
     with open(args.datafile, mode="r") as f:
         for line in f:
-            data = [float(s) for s in line.split(' ')]
+            data = [float(s) for s in line.split(',')]
             datas.append(data)
 
     a = pca.pca_assister(datas)
