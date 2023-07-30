@@ -24,9 +24,12 @@ class pca_assister:
         x -= self.avr
 
         m = x @ x.T
+        m /= float(datas_size)
         (self.eig_vals, self.eig_vecs) = LA.eig(m)
 
         s = np.argsort(-self.eig_vals)
+
+        self.eig_vals = self.eig_vals[s]
 
         self.eig_vecs = self.eig_vecs.T
         self.eig_vecs = self.eig_vecs[s]
